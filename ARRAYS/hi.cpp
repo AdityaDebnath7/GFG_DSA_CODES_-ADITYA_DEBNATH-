@@ -5,7 +5,7 @@ int binarysearch(int arr[], int n, int k)
 {
     int low = 0, high = n - 1;
     int x; // x is index of mid
-    while (low < high)
+    while (low <= high)
 
     {
         x = (low + high) / 2;
@@ -24,7 +24,11 @@ int binarysearch(int arr[], int n, int k)
         {
             high = x - 1;
         }
+        
+        
     }
+   
+   return -1;
 }
 int main()
 {
