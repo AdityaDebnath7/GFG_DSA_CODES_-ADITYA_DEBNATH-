@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 using namespace std;
 
@@ -42,11 +41,5 @@ while(true){
     cin>>k;cout<<endl;
     cout<<"survivor is "<<jos(n,k)<<endl;
 }
-   
-   
-
     return 0;
 }
-=======
-
->>>>>>> 344ef14713643762e8383573d2d12df7693366ed

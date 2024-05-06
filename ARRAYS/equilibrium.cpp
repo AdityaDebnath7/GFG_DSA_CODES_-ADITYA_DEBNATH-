@@ -2,7 +2,7 @@
 using namespace std;
 
 bool equilibrium(int arr[], int n)
-{
+{                                                    // this is efficient and works on theta n time
 
     int sumall = 0;
     int sumleft = arr[0];

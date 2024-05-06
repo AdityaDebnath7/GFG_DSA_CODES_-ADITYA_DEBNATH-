@@ -10,7 +10,7 @@ void minflips(int arr[], int n)                     // this is naive approach to
     {
         if (i == 0)
         {
-            if (arr[i] == 0)
+            if ( arr[i] == 0 )
 
                 grpzero++;
             else
@@ -25,13 +25,13 @@ void minflips(int arr[], int n)                     // this is naive approach to
             }
             if ((arr[i] == 0) && arr[i] != arr[i - 1])
             {
-                grpzero++;
+                grpzero ++ ;
             }
         }
     }
 
     if (grpone >= grpzero)
-    {
+    {                                                       
         flip = 1;
     }
     else

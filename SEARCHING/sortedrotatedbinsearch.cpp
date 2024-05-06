@@ -30,19 +30,7 @@ int binarysearch(int arr[], int n, int k)
 // SRABS = sorted rotated array binary search
 int SRABS(int arr[], int i, int f, int k)
 {
-    int mid = (i + f) / 2;
-    if (arr[mid] == k)
-    {
-        return mid;
-    }
-    if ((arr[mid] > arr[0]) && (arr[0] <= k) < arr[mid])
-    {
-        return binarysearch(arr, f - i + 1, k);
-    }
-    else
-        return SRABS(arr, mid + 1, f, k);
-        
-        return -1;
+    
 }
 int main()
 {

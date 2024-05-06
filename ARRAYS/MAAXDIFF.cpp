@@ -2,13 +2,13 @@
 using namespace std;
     
 
-// this is efficient approach !
+// this is efficient approach working in theta n time compleixity !
 
 int maxdiff(int arr[], int n){
     int res = arr[1]-arr[0];
 int minvalue=arr[0];
 
-
+ 
 for (int i = 0; i < n; i++)
 {
     res= max(res, arr[i]- minvalue);
