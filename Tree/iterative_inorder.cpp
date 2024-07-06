@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <queue>
+#include <stack>
 
 struct Node
 {
@@ -13,37 +14,34 @@ struct Node
         left = right = NULL;
     }
 };
-
-void printLevel(Node *root)
+// stack based iteration over tree
+//(inorder)
+void iterative_inorder(Node *root)
 {
-    if (root == NULL)
-        return;
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
-    while (q.size() > 1)
+    stack<Node *> stk;
+
+    Node *curr = root;
+
+    while ((curr != NULL) || !(stk.empty()))
     {
-        Node *curr = q.front();
-        q.pop();
-
-        if (curr == NULL)
+        while (curr != NULL)
         {
-            cout << '\n';
-            q.push(NULL);
-
-            continue;
+            stk.push(curr);
+            curr = curr->left;
         }
 
-        cout << curr->key << " ,";
-        if (curr->left != NULL)
-            q.push(curr->left);
-        if (curr->right != NULL)
-            q.push(curr->right);
+        curr = stk.top();
+        stk.pop();
+
+        cout << curr->key << " ";
+
+        curr = curr->right;
     }
 }
 
 int main()
 {
+
     Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
@@ -53,8 +51,7 @@ int main()
     root->right->left = new Node(6);
     root->right->right = new Node(7);
     root->right->left->right = new Node(8);
+   iterative_inorder(root);
 
-    // nodeatkdis(root,2);
-    printLevel(root);
     return 0;
 }

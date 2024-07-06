@@ -64,12 +64,13 @@ int main()
     root->right->left = new Node(6);
     root->right->right = new Node(7);
     root->right->left->right = new Node(8);
-
+    
     // nodeatkdis(root,2);
 
 
     levelorder(root);
-    
+    // this is computationally very costly
+
 
     return 0;
 }

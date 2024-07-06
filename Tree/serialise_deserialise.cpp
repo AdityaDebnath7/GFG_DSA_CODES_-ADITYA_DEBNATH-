@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <vector>
 #include <queue>
 
 struct Node
@@ -42,8 +43,43 @@ void printLevel(Node *root)
     }
 }
 
+// serialise
+
+const int EMPTY = -1;
+void serialize(Node *root, vector<int> &arr)
+{
+    if (root == NULL)
+    {
+        arr.push_back(EMPTY);
+        return;
+    }
+    arr.push_back(root->key);
+    serialize(root->left, arr);
+    serialize(root->right, arr);
+}
+
+// deserialising the vector and making the tree;
+// Node* prev = NULL;
+
+Node *deSerialize(vector<int> &arr, int &index)
+{
+    if (index == arr.size())
+        return NULL;
+    int val = arr[index];
+    index++;
+    if (val == EMPTY)
+        return NULL;
+    Node *root = new Node(val);
+    root->left = deSerialize(arr, index);
+    root->right = deSerialize(arr, index);
+    return root;
+}
+
+
 int main()
 {
+
+    vector<int> arr;
     Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
@@ -54,7 +90,18 @@ int main()
     root->right->right = new Node(7);
     root->right->left->right = new Node(8);
 
-    // nodeatkdis(root,2);
-    printLevel(root);
+    serialize(root, arr);
+
+    for (int
+             x : arr)
+    {
+        cout << x << ",";
+    }
+    int x = 0;
+
+    // deSerialize(arr,x);
+
+    printLevel(deSerialize(arr, x));
+
     return 0;
 }

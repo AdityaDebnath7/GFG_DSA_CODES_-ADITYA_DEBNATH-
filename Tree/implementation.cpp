@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node  
+{ 
+  int key; 
+  struct Node *left;   //left pointer
+  struct Node *right;  //right pointer
+  Node(int k){
+      key=k;          
+      left=right=NULL;
+  }
+};
+    
+int main() {
+	
+	Node *root=new Node(10);
+	root->left=new Node(20);
+	root->right=new Node(30);
+	root->left->left=new Node(40);
+
+
+    
+}
